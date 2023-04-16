@@ -11,13 +11,19 @@ Create Table roles(
 	id INT auto_increment primary key,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL NOT NULL,
-    departmentId INT NOT NULL
+    deptId INT,
+    FOREIGN KEY (deptId)
+    REFERENCES departments(id)
+    ON DELETE SET NULL
 );
 
 Create Table employees(
 	id INT auto_increment primary key,
     firstName VARCHAR(30) NOT NULL,
     lastName VARCHAR(30) NOT NULL,
-    roleId INT NOT NULL,
-    managerId INT NOT NULL
+    roleID INT,
+    managerId INT NOT NULL,
+    FOREIGN KEY (roleId)
+    REFERENCES roles(id)
+    ON DELETE SET NULL
 );

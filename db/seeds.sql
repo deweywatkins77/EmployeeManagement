@@ -12,7 +12,7 @@ INSERT INTO departments(name) VALUES ('Administration'),
 ('Finance'),
 ('Accounting');
 
-INSERT INTO roles(departmentId,title,salary) VALUES (1,'Public Accountant',9000.00),
+INSERT INTO roles(deptId,title,salary) VALUES (1,'Public Accountant',9000.00),
 (2,'Accounting Manager',16000.00),
 (3,'Administration Assistant',6000.00),
 (4,'President',40000.00),
