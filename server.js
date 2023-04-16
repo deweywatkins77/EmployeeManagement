@@ -1,33 +1,12 @@
-const express = requirer('express')
-const db = requirer('mysql2')
 const inquirer = require('inquirer')
-const app = express()
+const question = require('./lib/questions.js')
+const selectAll = require('./lib/querys.js')
+const mainAnswer = require('./lib/answers.js')
 
- var mainQuestions = [
-    {
-      type: 'maxlength-input',
-      name: 'text',
-      message: 'What three letters would you like displayed',
-      maxLength: 3
-    },
-    {
-      type: 'input',
-      name: 'textColor',
-      message: "What color would you like your text to be? \n(Type in a color, or hexadecimal value)",
-    },
-    {
-      type: 'list',
-      name: 'shape',
-      message: 'What shape would you like for your logo?',
-      choices: ['Square', 'Triangle', 'Circle', 'Ellipse'],
-    },
-    {
-      type: 'input',
-      name: 'shapeColor',
-      message: "What color would you like your shape to be? \n(Type in a color, or hexadecimal value)",
-    },
-  ]
+async function log(){
+  console.table(await selectAll('departments'))
+}
 
-  inquirer.prompt(questions).then((inquirerResponses) => {
-    writeToFile('logo.svg', generateSVG({ ...inquirerResponses }));
-  });
+inquirer.prompt(question.mainQuestion)
+  .then((response) => {mainAnswer(response)})
+  .then((response) => {log()})
