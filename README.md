@@ -29,7 +29,9 @@ npm i
 
 ## Usage
 
-User will need to change the password for the mysql database in /lib/querys.js.
+User will need to change the password for the mysql database in /lib/querys.js. Import the schema file located in /db/schema.sql. There is a seed file if you want to mess around with fake data. Once the program is running you can use the arrow keys to perform functions on the database.
+
+[Here](https://watch.screencastify.com/v/h91mtWLIxQFNOkZsbCzQ) is a video of how to use the program.
 
 ## License
 
