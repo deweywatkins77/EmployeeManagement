@@ -1,12 +1,15 @@
 const inquirer = require('inquirer')
 const question = require('./lib/questions.js')
-const selectAll = require('./lib/querys.js')
 const mainAnswer = require('./lib/answers.js')
 
-async function log(){
-  console.table(await selectAll('departments'))
+var stop = 0
+
+async function menu() {
+  const answer = await inquirer.prompt(question.mainQuestion)
+  const nextQuestion = await mainAnswer(answer.todo)
+  if (nextQuestion) {
+    menu()
+  }
 }
 
-inquirer.prompt(question.mainQuestion)
-  .then((response) => {mainAnswer(response)})
-  .then((response) => {log()})
+menu()
