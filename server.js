@@ -9,6 +9,7 @@ var mainQuestion = [
       choices: ['View All Employees', 
       'Add Employee',
       'Update Employee Role',
+      'View Employees by Manager',
       'View All Roles',
       'Add Role',
       'View All Departments',
